@@ -7,11 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-/**
- * Created by Gym on 16/6/13.
- */
 public class MessageAdapter extends ArrayAdapter<ChatMessage> {
-
     private final LayoutInflater mInflater;
     private int mResourceMe;
     private int mResourceOthers;
@@ -25,13 +21,10 @@ public class MessageAdapter extends ArrayAdapter<ChatMessage> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ChatMessage message = getItem(position);
         convertView = mInflater.inflate(message.messageSender == ChatMessage.MSG_SENDER_ME ? mResourceMe:mResourceOthers, parent, false);
-
         TextView name = (TextView) convertView.findViewById(R.id.message_content);
         name.setText(message.messageContent);
-
         return convertView;
     }
 }

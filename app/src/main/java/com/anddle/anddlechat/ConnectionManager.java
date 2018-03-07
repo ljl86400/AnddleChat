@@ -10,9 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-/**
- * Created by Gym on 16/6/12.
- */
+
 public class ConnectionManager {
 
     private final static String TAG = "ConnectionManager";
@@ -24,18 +22,16 @@ public class ConnectionManager {
     public static final int LISTEN_STATE_LISTENING = 4;
 
     private static final String BT_NAME = "AnddleChat";
-    private static final UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//("fa87c0d0-afac-11de-8a39-0800200c9a66");
+    private static final UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    //("fa87c0d0-afac-11de-8a39-0800200c9a66");
 
     private int mConnectState = CONNECT_STATE_IDLE;
     private int mListenState = LISTEN_STATE_IDLE;
     private ConnectionListener mConnectionListener;
     private final BluetoothAdapter mBluetoothAdapter;
-
     private AcceptThread mAcceptThread;
     private ConnectedThread mConnectedThread;
-
     public interface ConnectionListener {
-
         public void onConnectStateChange(int oldState, int State);
         public void onListenStateChange(int oldState, int State);
         public void onSendData(boolean suc, byte[] data);
