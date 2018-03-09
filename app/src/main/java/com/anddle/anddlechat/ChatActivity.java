@@ -21,6 +21,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * ChatActivity实现三个主要功能：
+ * 当蓝牙没有开启或者设备不能被发现的时候，请求用户打开对应的功能；
+ * 下方有输入框输入要发送的文字内容，点击按钮后能实现文字的发送；输入框上方的大部分区域用来显示聊天的内容；
+ * 菜单栏根据当前蓝牙连接的状态，显示不同的菜单项。例如，没有连接时启动蓝牙设备选择界面；
+ */
+
 public class ChatActivity extends AppCompatActivity {
 
     private static final String TAG = "ChatActivity";
@@ -188,7 +195,7 @@ public class ChatActivity extends AppCompatActivity {
         mMessageListView.setAdapter(adapter);
 
         /*
-         * 创建一个监听，并开始监听
+         * 创建一个连接管理器，并通过连接监听器监听连接动作，并开始监听
          */
         mConnectionManager = new ConnectionManager(mConnectionListener);
         mConnectionManager.startListen();
@@ -196,6 +203,11 @@ public class ChatActivity extends AppCompatActivity {
         /*
          * 判断自己的设备能否被发现，如果不能被发现，创建一个对话，让用户决定能否被发现
          * value：0 是设定可以被发现之后，可被发现状态的持续时间，0表示一直能被发现
+         * *************************************************************************************
+         * 某个应用想让其他蓝牙设备检测到您的平板电脑。之后，您可以在“蓝牙”设置中更改此设    *
+         * 置。                                                                                *
+         *                                                               拒绝   允许           *
+         * *************************************************************************************
          */
         if(BTAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
             Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);

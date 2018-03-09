@@ -1,0 +1,64 @@
+@startuml
+hide footbox
+title 序列图
+
+actor User #Blue
+User->A
+note left: Note on left
+
+[o->A: message
+activate A
+note left: 生命线
+
+A->B: message
+deactivate A
+activate B
+note right: Note on right
+
+B-->A: message
+deactivate B
+activate A
+
+A->A: message
+activate A
+deactivate A
+deactivate A
+
+A->o C
+note right: 箭头样式
+
+A-[#blue]>C
+note right: 箭头颜色
+
+alt AD
+    A->D: message
+else DA
+    A->D: message
+end
+note over D #FFAAAA: 组合消息
+
+D->E:message
+note right: Creole和HTML
+note right of E
+  This is **bold**
+  This is //italics//
+  This is ""monospaced""
+  This is --stroked--
+  This is __underlined__
+  This is ~~waved~~
+end note
+
+== 分隔符 ==
+
+E->F: message
+
+...
+note over A:延迟
+F->A:message
+
+box "包裹参与者DEF" #LightBlue
+    participant D
+    participant E
+    participant F
+end box
+@enduml
