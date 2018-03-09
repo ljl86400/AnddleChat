@@ -30,9 +30,9 @@ public class DeviceItemAdapter extends ArrayAdapter<BluetoothDevice> {
      * 传入需要展示的视图的信息、一个需要被编辑的视图对象convertView、以及视图所在的视图组
      *   选择执行【如果传入的convertView是空的】：直接按照mResource和parent设置convertView
      *   视图关系
-     *   创建两个convertView视图，一个是文本视图用来显示蓝牙名称，一个是用来展示蓝牙相关信息的视图
+     *   创建两个convertView文本视图，一个视图用来显示蓝牙名称，一个是用来展示蓝牙相关信息的视图
      *   两个视图中分别填入蓝牙的名称和蓝牙的信息
-     *   返回convertView
+     *   返回名字为convertView的View对象
      *
      */
     @Override

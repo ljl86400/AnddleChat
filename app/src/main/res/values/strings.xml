@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AnddleChat</string>
+    <string name="app_name">ChatTest</string>
 
     <string name="unknown">Unknown</string>
     <string name="search">search</string>
@@ -9,5 +9,5 @@
     <string name="connect">Connect</string>
     <string name="about">About</string>
     <string name="enable_bt">Enable bluetooth first.</string>
-    <string name="verion_info">Version: %s \n Designer: Anddle</string>
+    <string name="verion_info">Version: %s \n Designer: chatTester</string>
 </resources>
